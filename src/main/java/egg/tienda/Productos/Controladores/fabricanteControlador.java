@@ -2,7 +2,6 @@ package egg.tienda.Productos.Controladores;
 
 import egg.tienda.Productos.Errores.ErrorServicio;
 import egg.tienda.Productos.Servicios.FabricanteServicio;
-import java.awt.Dialog;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;

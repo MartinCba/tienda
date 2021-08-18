@@ -63,7 +63,7 @@ public class ProductoServicio {
             throw new ErrorServicio("El precio del producto no puede ser nulo");
         }
         if (descripcion == null || descripcion.isEmpty() || descripcion.contains("  ")) {
-            throw new ErrorServicio("El nombre del autor no puede ser nulo");
+            throw new ErrorServicio("la descripcion no puede ser nula");
         }
     }
     
