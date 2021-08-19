@@ -26,14 +26,19 @@ public class productoControlador {
 
     @PostMapping("/crear")
     public String crarProducto(ModelMap modelo, @RequestParam String nombre, @RequestParam Integer precio, @RequestParam String descripcion) {
+        
         try {
             productoServicio.guardar(nombre, precio, descripcion);
         } catch (ErrorServicio ex) {
-            modelo.put("error2", ex.getMessage());
+            modelo.put("error", ex.getMessage());
             Logger.getLogger(productoControlador.class.getName()).log(Level.SEVERE, null, ex);
+            modelo.put("nombre", nombre);
+            modelo.put("precio", precio);
+            modelo.put("descripcion", descripcion);
+            
             return "producto/form-producto.html";
         }
-        modelo.put("exito2", nombre);
+        modelo.put("exito", nombre);
         return "producto/form-producto.html";
     }
 

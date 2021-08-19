@@ -53,14 +53,14 @@
 
             <!-- Esto nos va servir para mostrar un mensaje de alerta si el producto fue 
             registrado con exito o hubo un error. -->
-            <div th:if="${exito2}!=null" class="alert alert-success alert-dismissible fade show" role="alert">
+            <div th:if="${exito}!=null" class="alert alert-success alert-dismissible fade show" role="alert">
                 <strong>Exito!</strong> Producto registrado.
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
 
-            <div th:if="${error2}!=null" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <div th:if="${error}!=null" class="alert alert-danger alert-dismissible fade show" role="alert">
                 <strong>Error!</strong> <p th:text="${error}"></p>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -74,15 +74,15 @@
             <form th:action="@{/producto/crear}" method="POST"> 
                 <div class="mb-3">
                     <label  class="form-label">Nombre Producto</label>
-                    <input type="text" class="form-control" placeholder="Nombre del Producto">
+                    <input type="text" class="form-control" name ="nombre" placeholder="Nombre del Producto" th:value="${nombre}">
                 </div>
                 <div class="mb-3">
                     <label  class="form-label">Precio</label>
-                    <input type="number" class="form-control" placeholder="Precio del Producto">
+                    <input type="number" class="form-control" title='Only Number' min="1" step="1" name ="precio" value="1" placeholder="Precio del Producto" >
                 </div>
                 <div class="mb-3">
                     <label  class="form-label">Descripcion</label>
-                    <input type="text" class="form-control" placeholder="Descripcion del Producto">
+                    <input type="text" class="form-control" name ="descripcion" placeholder="Descripcion del Producto" th:value="${descripcion}">
                 </div>
                 <div class="mb-3">
                     <!--             En este select vamos a poner a nuestros fabricantes para que el usuario 

@@ -17,6 +17,7 @@ public class ProductoServicio {
     
     @Transactional
     public Producto guardar(String nombre, Integer precio, String descripcion) throws ErrorServicio {
+     
         validar(nombre, precio, descripcion);
         
         Producto producto = new Producto();
@@ -56,6 +57,7 @@ public class ProductoServicio {
     }
     
     public void validar(String nombre, Integer precio, String descripcion) throws ErrorServicio {
+        
         if (nombre == null || nombre.isEmpty() || nombre.contains("  ")) {
             throw new ErrorServicio("El nombre del producto no puede ser nulo");
         }
